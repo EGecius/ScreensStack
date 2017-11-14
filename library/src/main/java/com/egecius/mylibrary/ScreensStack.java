@@ -35,7 +35,7 @@ public class ScreensStack {
 
         @Override
         public void onActivityStopped(Activity activity) {
-            Log.i("Eg:ScreensStack:41", "onActivityStopped activity " + activity);
+            Log.w("Eg:ScreensStack:41", "onActivityStopped activity " + activity);
         }
 
         @Override
@@ -107,7 +107,7 @@ public class ScreensStack {
                 @Override
                 public void onFragmentStopped(FragmentManager fm, Fragment f) {
                     super.onFragmentStopped(fm, f);
-                    Log.i("Eg:ScreensStack:120", "onFragmentStopped f " + f);
+                    Log.w("Eg:ScreensStack:120", "onFragmentStopped f " + f);
                 }
 
                 @Override
