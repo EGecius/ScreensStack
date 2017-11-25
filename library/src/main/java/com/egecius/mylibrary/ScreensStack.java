@@ -20,12 +20,12 @@ public class ScreensStack {
 
         @Override
         public void onActivityStarted(Activity activity) {
-            Log.i("Eg:ScreensStack:26", "onActivityStarted activity " + activity);
+            Log.i("Eg:ScreensStack:23", "onActivityStarted activity " + activity);
         }
 
         @Override
         public void onActivityStopped(Activity activity) {
-            Log.w("Eg:ScreensStack:41", "onActivityStopped activity " + activity);
+            Log.w("Eg:ScreensStack:28", "onActivityStopped activity " + activity);
         }
     }
 
