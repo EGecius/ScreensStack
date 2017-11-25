@@ -9,8 +9,7 @@ import android.util.Log;
 public class ScreensStack {
 
     public void init(Application application) {
-        application.registerActivityLifecycleCallbacks(
-                new MyActivityLifecycleCallbacks());
+        application.registerActivityLifecycleCallbacks(new MyActivityLifecycleCallbacks());
     }
 
     private class MyActivityLifecycleCallbacks extends SimpleActivityLifecycleCallbacks {
