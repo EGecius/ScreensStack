@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class ScreensStack {
 
-    public void init(Application application) {
+    public void printScreenNames(Application application) {
         application.registerActivityLifecycleCallbacks(new MyActivityLifecycleCallbacks());
     }
 
