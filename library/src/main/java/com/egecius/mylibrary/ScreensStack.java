@@ -33,8 +33,7 @@ public class ScreensStack {
         if (!(activity instanceof FragmentActivity)) {
             return;
         }
-
         ((FragmentActivity) activity).getSupportFragmentManager()
-                .registerFragmentLifecycleCallbacks(new MyFragmentLifecycleCallbacks(), false);
+                .registerFragmentLifecycleCallbacks(new MyFragmentLifecycleCallbacks(), true);
     }
 }
