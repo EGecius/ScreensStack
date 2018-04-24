@@ -40,6 +40,6 @@ public class ScreensStack {
             return;
         }
         ((FragmentActivity) activity).getSupportFragmentManager()
-                .registerFragmentLifecycleCallbacks(new MyFragmentLifecycleCallbacks(), true);
+                .registerFragmentLifecycleCallbacks(new MyFragmentLifecycleCallbacks(mTag), true);
     }
 }

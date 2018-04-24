@@ -5,13 +5,20 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
 class MyFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallbacks {
+
+    private String mTag;
+
+    public MyFragmentLifecycleCallbacks(String tag) {
+        mTag = tag;
+    }
+
     @Override
     public void onFragmentStarted(FragmentManager fm, Fragment f) {
-        Log.d("Eg:ScreeMyFragment..:10", "onFragmentStarted f " + f);
+        Log.d(mTag, "onFragmentStarted f " + f);
     }
 
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment f) {
-        Log.e("Eg:ScreeMyFragment.:120", "onFragmentStopped f " + f);
+        Log.e(mTag, "onFragmentStopped f " + f);
     }
 }
