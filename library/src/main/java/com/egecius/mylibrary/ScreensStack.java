@@ -9,14 +9,20 @@ import android.widget.Toast;
 
 public class ScreensStack {
 
-    private final String mTag;
     private final Application mApplication;
+    private final String mTag;
     private final boolean mPrintLongNames;
 
-    public ScreensStack(String tag, Application application, boolean printLongNames) {
+    public ScreensStack(Application application, String tag, boolean printLongNames) {
         mTag = tag;
         mApplication = application;
         mPrintLongNames = printLongNames;
+    }
+
+    public ScreensStack(Application application) {
+        mApplication = application;
+        mTag = "Eg:ScreensStack:";
+        mPrintLongNames = false;
     }
 
     public void printScreenNames() {
@@ -41,7 +47,8 @@ public class ScreensStack {
         }
         ((FragmentActivity) activity).getSupportFragmentManager()
                 .registerFragmentLifecycleCallbacks(
-                        new MyFragmentLifecycleCallbacks(mApplication, mTag, mPrintLongNames), true);
+                        new MyFragmentLifecycleCallbacks(mApplication, mTag, mPrintLongNames),
+                        true);
     }
 
     private class MyActivityLifecycleCallbacks extends SimpleActivityLifecycleCallbacks {

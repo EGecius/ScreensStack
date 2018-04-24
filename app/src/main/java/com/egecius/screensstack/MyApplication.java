@@ -15,7 +15,7 @@ public class MyApplication extends Application {
     }
 
     private void initScreensStack() {
-        mScreensStack = new ScreensStack("Eg:ScreensStack:", this, false);
+        mScreensStack = new ScreensStack(this);
         mScreensStack.printScreenNames();
     }
 }
