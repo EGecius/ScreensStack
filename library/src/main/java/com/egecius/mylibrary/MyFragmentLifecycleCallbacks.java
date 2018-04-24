@@ -8,17 +8,17 @@ class MyFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCall
 
     private String mTag;
 
-    public MyFragmentLifecycleCallbacks(String tag) {
+    MyFragmentLifecycleCallbacks(String tag) {
         mTag = tag;
     }
 
     @Override
     public void onFragmentStarted(FragmentManager fm, Fragment f) {
-        Log.d(mTag, "onFragmentStarted f " + f);
+        Log.i(mTag, "onFragmentStarted f " + f);
     }
 
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment f) {
-        Log.e(mTag, "onFragmentStopped f " + f);
+        Log.w(mTag, "onFragmentStopped f " + f);
     }
 }

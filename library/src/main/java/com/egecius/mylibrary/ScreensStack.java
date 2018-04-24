@@ -26,12 +26,12 @@ public class ScreensStack {
 
         @Override
         public void onActivityStarted(Activity activity) {
-            Log.i(mTag, "onActivityStarted activity " + activity);
+            Log.d(mTag, "onActivityStarted activity " + activity);
         }
 
         @Override
         public void onActivityStopped(Activity activity) {
-            Log.w(mTag, "onActivityStopped activity " + activity);
+            Log.e(mTag, "onActivityStopped activity " + activity);
         }
     }
 
