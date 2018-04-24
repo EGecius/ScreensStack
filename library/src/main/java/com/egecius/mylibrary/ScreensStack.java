@@ -5,34 +5,25 @@ import android.app.Application;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 public class ScreensStack {
 
-    private String mTag;
+    private final String mTag;
+    private final Application mApplication;
 
-    public ScreensStack(String tag) {
+    public ScreensStack(String tag, Application application) {
         mTag = tag;
+        mApplication = application;
     }
 
-    public void printScreenNames(Application application) {
-        application.registerActivityLifecycleCallbacks(new MyActivityLifecycleCallbacks());
+    public void printScreenNames() {
+        mApplication.registerActivityLifecycleCallbacks(new MyActivityLifecycleCallbacks());
     }
 
-    private class MyActivityLifecycleCallbacks extends SimpleActivityLifecycleCallbacks {
-        @Override
-        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            registerFragmentCallbacks(activity);
-        }
-
-        @Override
-        public void onActivityStarted(Activity activity) {
-            Log.d(mTag, "onActivityStarted activity " + activity);
-        }
-
-        @Override
-        public void onActivityStopped(Activity activity) {
-            Log.e(mTag, "onActivityStopped activity " + activity);
-        }
+    private void postToast(Activity activity) {
+        String activityName = activity.getClass().getSimpleName();
+        Toast.makeText(mApplication, activityName, Toast.LENGTH_SHORT).show();
     }
 
     private void registerFragmentCallbacks(Activity activity) {
@@ -40,6 +31,26 @@ public class ScreensStack {
             return;
         }
         ((FragmentActivity) activity).getSupportFragmentManager()
-                .registerFragmentLifecycleCallbacks(new MyFragmentLifecycleCallbacks(mTag), true);
+                .registerFragmentLifecycleCallbacks(
+                        new MyFragmentLifecycleCallbacks(mApplication, mTag), true);
+    }
+
+    private class MyActivityLifecycleCallbacks extends SimpleActivityLifecycleCallbacks {
+
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+            registerFragmentCallbacks(activity);
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+            postToast(activity);
+            Log.d(mTag, "onActivityStarted activity " + activity);
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+            Log.e(mTag, "onActivityStopped activity " + activity);
+        }
     }
 }
