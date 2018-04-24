@@ -45,12 +45,12 @@ public class ScreensStack {
         @Override
         public void onActivityStarted(Activity activity) {
             postToast(activity);
-            Log.d(mTag, "onActivityStarted activity " + activity);
+            Log.d(mTag, "onActivityStarted " + activity);
         }
 
         @Override
         public void onActivityStopped(Activity activity) {
-            Log.e(mTag, "onActivityStopped activity " + activity);
+            Log.e(mTag, "onActivityStopped " + activity);
         }
     }
 }

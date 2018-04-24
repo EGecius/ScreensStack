@@ -19,7 +19,7 @@ class MyFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCall
     @Override
     public void onFragmentStarted(FragmentManager fm, Fragment fragment) {
         showToast(fragment);
-        Log.i(mTag, "onFragmentStarted fragment " + fragment);
+        Log.i(mTag, "onFragmentStarted " + fragment);
     }
 
     private void showToast(Fragment fragment) {
@@ -29,6 +29,6 @@ class MyFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCall
 
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment fragment) {
-        Log.w(mTag, "onFragmentStopped fragment " + fragment);
+        Log.w(mTag, "onFragmentStopped " + fragment);
     }
 }
