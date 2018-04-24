@@ -8,6 +8,12 @@ import android.util.Log;
 
 public class ScreensStack {
 
+    private String mTag;
+
+    public ScreensStack(String tag) {
+        mTag = tag;
+    }
+
     public void printScreenNames(Application application) {
         application.registerActivityLifecycleCallbacks(new MyActivityLifecycleCallbacks());
     }
@@ -20,12 +26,12 @@ public class ScreensStack {
 
         @Override
         public void onActivityStarted(Activity activity) {
-            Log.i("Eg:ScreensStack:23", "onActivityStarted activity " + activity);
+            Log.i(mTag, "onActivityStarted activity " + activity);
         }
 
         @Override
         public void onActivityStopped(Activity activity) {
-            Log.w("Eg:ScreensStack:28", "onActivityStopped activity " + activity);
+            Log.w(mTag, "onActivityStopped activity " + activity);
         }
     }
 
