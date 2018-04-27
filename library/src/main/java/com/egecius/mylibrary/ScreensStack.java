@@ -21,7 +21,7 @@ public class ScreensStack {
 
     public ScreensStack(Application application) {
         mApplication = application;
-        mTag = "Eg:ScreensStack:";
+        mTag = "Eg:£ScreensStack:";
         mPrintLongNames = false;
     }
 
